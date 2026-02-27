@@ -122,7 +122,7 @@ This transforms predictive modeling into business strategy.
 - Pandas
 - Scikit-learn
 - Matplotlib / Seaborn
-- Jupyter / Google Colab
+- Google Colab
 
 ---
 
