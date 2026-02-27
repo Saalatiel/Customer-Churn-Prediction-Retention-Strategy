@@ -5,7 +5,7 @@ import plotly.express as px
 st.set_page_config(page_title="Customer Churn Dashboard", layout="wide")
 
 # Load data
-df = pd.read_csv("online_retail_II - Year 2009-2010(1).csv", encoding="ISO-8859-1")
+df = pd.read_csv("online_retail.csv", encoding="ISO-8859-1")
 
 st.title("📊 Customer Churn & Retention Strategy Dashboard")
 
