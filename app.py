@@ -13,41 +13,46 @@ st.title("📊 Customer Churn & Retention Strategy Dashboard")
 col1, col2, col3 = st.columns(3)
 
 col1.metric("Total Customers", df["Customer ID"].nunique())
-col2.metric("Total Revenue", round((df["Quantity"] * df["Price"]).sum(), 2))
-col3.metric("Total Transactions", df["Invoice"].nunique())
+col2.metric("Total Monetary", round(df["Monetary"].sum(), 2))
+col3.metric("High Risk Customers (>0.8)", int((df["Churn_Probability"] > 0.8).sum()))
 
 st.divider()
 
-# Revenue by Country
-st.subheader("Revenue by Country")
+# Customer Risk Map
+st.subheader("Customer Risk Map (Recency vs Monetary)")
 
-df["Revenue"] = df["Quantity"] * df["Price"]
-country_rev = df.groupby("Country")["Revenue"].sum().reset_index()
-
-fig = px.bar(
-    country_rev.sort_values("Revenue", ascending=False).head(10),
-    x="Country",
-    y="Revenue",
-    title="Top 10 Countries by Revenue"
+fig = px.scatter(
+    df,
+    x="Recency",
+    y="Monetary",
+    color="Churn_Probability",
+    hover_data=["Customer ID", "Frequency", "Action"],
+    title="Customer Risk Map",
 )
 
 st.plotly_chart(fig, use_container_width=True)
 
 st.divider()
 
-# Monthly Revenue Trend
-st.subheader("Monthly Revenue Trend")
+# Action Distribution
+st.subheader("Recommended Retention Actions")
 
-df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"])
-df["YearMonth"] = df["InvoiceDate"].dt.to_period("M").astype(str)
+action_counts = df["Action"].value_counts().reset_index()
+action_counts.columns = ["Action", "Count"]
 
-monthly_rev = df.groupby("YearMonth")["Revenue"].sum().reset_index()
-
-fig2 = px.line(
-    monthly_rev,
-    x="YearMonth",
-    y="Revenue",
-    title="Revenue Over Time"
+fig2 = px.bar(
+    action_counts,
+    x="Action",
+    y="Count",
+    title="Action Distribution",
 )
 
 st.plotly_chart(fig2, use_container_width=True)
+
+st.divider()
+
+# Top High Risk Customers Table
+st.subheader("Top High Risk Customers")
+
+top_risk = df.sort_values("Churn_Probability", ascending=False).head(20)
+st.dataframe(top_risk[["Customer ID", "Recency", "Frequency", "Monetary", "Churn_Probability", "Action"]])
