@@ -1,6 +1,6 @@
-# 📊 Customer Churn Prediction & Retention Strategy
+#  Customer Churn Prediction & Retention Strategy
 
-## 🔎 Business Problem
+##  Business Problem
 
 Customer churn is one of the main revenue leakage drivers in retail businesses.  
 Identifying high-risk customers before they leave enables proactive retention strategies and revenue protection.
@@ -9,7 +9,7 @@ This project develops a predictive churn model and a data-driven retention strat
 
 ---
 
-## 🎯 Objective
+##  Objective
 
 - Predict customer churn probability
 - Identify high-value customers at risk
@@ -18,7 +18,7 @@ This project develops a predictive churn model and a data-driven retention strat
 
 ---
 
-## 📂 Dataset
+##  Dataset
 
 **Online Retail II Dataset (2009–2010)**  
 Contains transactional data including:
@@ -31,7 +31,7 @@ Contains transactional data including:
 
 ---
 
-## 🧹 Data Preparation
+##  Data Preparation
 
 - Removed null Customer IDs
 - Filtered returns and negative quantities
@@ -46,7 +46,7 @@ Churn defined as:
 
 ---
 
-## 🤖 Modeling Approach
+##  Modeling Approach
 
 Model used:
 - Random Forest Classifier
@@ -64,7 +64,7 @@ Evaluation metrics:
 
 ---
 
-## 📈 Key Insights
+##  Key Insights
 
 - Recency is the strongest churn predictor.
 - High-monetary customers with increasing recency represent major financial risk.
@@ -72,7 +72,7 @@ Evaluation metrics:
 
 ---
 
-## 💰 Revenue Risk Estimation
+##  Revenue Risk Estimation
 
 High-risk customers (probability > 0.8) represent a significant portion of total revenue.
 
@@ -80,7 +80,7 @@ Proactive retention strategies could substantially reduce revenue loss.
 
 ---
 
-## 🎯 Strategic Retention Layer
+##  Strategic Retention Layer
 
 Customers classified into 3 action groups:
 
@@ -94,7 +94,7 @@ This transforms predictive modeling into business strategy.
 
 ---
 
-## 📊 Visualizations
+##  Visualizations
 
 - Monthly revenue trend
 - Churn rate evolution
@@ -107,7 +107,7 @@ This transforms predictive modeling into business strategy.
 
 ---
 
-## 🚀 Next Steps
+##  Next Steps
 
 - Deploy model via API
 - Integrate with CRM
@@ -116,7 +116,7 @@ This transforms predictive modeling into business strategy.
 
 ---
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - Python
 - Pandas
@@ -126,7 +126,7 @@ This transforms predictive modeling into business strategy.
 
 ---
 
-## 📌 Conclusion
+##  Conclusion
 
 This project demonstrates how machine learning can move beyond prediction and directly support revenue-protection strategies through actionable insights.
 
